@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<style>
+			div {
+			width: 100px;
+			height: 100px;
+			border: 3px solid #000;
+			border-radius: 10px;
+		}
+
+		div.animate {
+			animation: prompt 0.5s linear 0s infinite alternate;
+		}
+
+		@keyframes prompt {
+			0% {}
+			50% {}
+			100% {}
+	</style>
+</head>
+
+<body>
+	<div id="prompt" class="animate">
+		<ul class="test">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="script/extends/juicer-min.js"></script>
+	<script src="script/extends/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			/*$window = $(window);
+			function handel(event) {
+				console.log(event.which);
+				$window.off('keydown',handel);
+			}
+			 $window.on('keydown',handel);
+			$window.on('keydown',function(){
+				console.log('fuck fuck');
+			});
+*/
+			var ME={
+				'getName':function(){
+					return this.name;
+				},
+				'name':'nan',
+			};
+			console.log(ME.getName());
+		});
+	</script>
+</body>
+
+</html>

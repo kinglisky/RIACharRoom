@@ -1,0 +1,241 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font-family: YouYuan;
+	font-size: 16px;
+	position: absolute;
+	background-color: rgb(252,246,224);
+//	background-image: url(../images/bg3.gif);
+}
+
+.login {
+	//		display: none;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0% auto;
+	//	border: 1px solid #000;
+	overflow: hidden;
+	background: url(../images/qiqiu.png) no-repeat center top;
+	.login-wrapper {
+		width: 500px;
+		margin: 20% auto;
+		margin-bottom: 0;
+		//		border: 1px solid #000;
+		overflow: hidden;
+		input,
+		button {
+			padding: 3% 0;
+			position: relative;
+			text-align: center;
+			display: block;
+			float: left;
+			border: 1px solid #94a29f;
+			background-color:rgba(255, 255, 255, 0.3);
+		}
+		input {
+			border-right: none;
+			width: 80%;
+			border-radius: 5px 0 0 5px;
+		}
+		button {
+//			background-color: #fff;
+			width: 19%;
+			border-radius: 0 5px 5px 0;
+			color: #716e6e;
+			cursor: pointer;
+			transition: all 0.5s;
+			&:hover {
+				color: #000;
+			}
+		}
+	}
+	.operation-prompt {
+		line-height: 2em;
+		font-size: 14px;
+		display: none;
+		width: 500px;
+		margin: 2% auto;
+		color: #8e8e8e;
+	}
+}
+
+.main {
+	//	border: 1px solid #000;
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	.handle-panel {
+		z-index: 1300;
+		top: 0px;
+		right: 0px;
+		position: absolute;
+		//		border: 1px solid #000;
+		width: 80px;
+		li {
+			z-index: 1320;
+			margin: 10px auto;
+			line-height: 60px;
+			text-align: center;
+			font-size: 40px;
+			display: block;
+			width: 60px;
+			height: 60px;
+			border: 2px solid #000;
+			border-radius: 20px;
+			cursor: pointer;
+			transition: all 0.5s;
+			i {
+				z-index: 1310;
+			}
+			&:hover {
+				border-radius: 10px;
+				color: #ccc;
+				border-color: #ccc;
+			}
+		}
+		li.prompt {
+			animation-name: prompt;
+			animation-duration: 0.5s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: 3;
+			animation-fill-mode: forwards;
+		}
+		@keyframes prompt {
+			0% {
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+				color: #000;
+			}
+			25% {
+				color: #7b0000;
+			}
+			50% {
+				width: 65px;
+				height: 65px;
+				line-height: 65px;
+				color: #e51b1b;
+			}
+			75% {
+				color: #7b0000;
+			}
+			90% {
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+				color: #000;
+			}
+			100% {
+				color: #e51b1b;
+			}
+		}
+	}
+	.group-chat-panel {
+				display: none;
+		z-index: 1000;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 30%;
+		height: 99%;
+		//		border:1px solid #000;
+		border-radius: 5px;
+		background: rgba(255, 255, 255, 0);
+		#group-msg-wrapper,
+		#group-msg-input {
+			border-radius: 3px;
+			display: block;
+			margin: 2% auto;
+		}
+		#group-msg-input {
+			width: 86%;
+			padding: 3% 2%;
+			display: block;
+			border: 2px solid #000;
+			background: rgba(255, 255, 255, 0);
+		}
+		#group-msg-wrapper {
+			display: block;
+			border: 2px solid #000000;
+			width: 90%;
+			height: 90%;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			li {
+				border: none;
+				display: block;
+				width: 70%;
+				padding: 2%;
+				margin: 2% 3%;
+				font-size: 14px;
+				span {
+					padding-right: 4px;
+					font-weight: bold;
+				}
+			}
+			li.msg-join,
+			li.msg-leave {
+				@color: #acacac;
+				width: 80%;
+				float: left;
+				font-size: 12px;
+				color: @color;
+				border-bottom: 1px dashed @color;
+				border-left: 1px dashed @color;
+			}
+			li.msg-typing {
+				@color: #000000;
+				width: 50%;
+				float: left;
+				color: @color;
+			}
+			li.msg-left {
+				@color: #008853;
+				text-align: left;
+				float: left;
+				color: @color;
+				border-left: 1px dashed @color;
+				border-bottom: 1px dashed @color;
+			}
+			li.msg-right {
+				@color: #1a9ba0;
+				text-align: left;
+				float: right;
+				color: @color;
+				border-left: 1px dashed @color;
+				border-bottom: 1px dashed @color;
+			}
+		}
+	}
+	.game-wrapper {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+}
+
+.alert {
+	top: 50%;
+	left: 50%;
+	line-height: 2em;
+	margin-top: -100px;
+	margin-left: -300px;
+	width: 600px;
+	display: none;
+	z-index: 1100;
+	position: fixed;
+	padding: 2%;
+	color: #ccc;
+	border: 2px solid rgba(106, 106, 106, 0.81);
+	background-color: rgba(0, 0, 0, 0.68);
+	border-radius: 10px;
+}

@@ -1,0 +1,29 @@
+{
+	"name": "RIAChatRoom",
+	"version": "1.0.0",
+	"description": "'this is a RIAChatroom'",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@git.coding.net:kingli/RIAChatRoom.git"
+	},
+	"keywords": [
+    "RIA",
+    "chat",
+    "room",
+    "game",
+    "ctrl"
+  ],
+	"author": "kingli",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.13.3",
+		"socket.io": "^1.3.7"
+	},
+	"engines": {
+		"node": ">=0.12"
+	}
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" href="style/base.css">
+	<link rel="stylesheet" href="style/index.css">
+	<link rel="stylesheet" href="style/font-awesome.min.css">
+	<title>富媒体聊天室</title>
+</head>
+
+<body>
+	<div class="login">
+		<div class="login-wrapper">
+			<input type="text" id="joinInput" placeholder="请输入昵称进行聊天室">
+			<button id="joinBtn">JOIN IN</button>
+		</div>
+		<ul class="operation-prompt">
+			<li>输入昵称进入聊天室</li>
+			<li>可以与在线用户群聊</li>
+			<li>点击其他用户角与其聊天</li>
+			<li>点击页面获取焦点用上下左右控制用户角色移动</li>
+		</ul>
+	</div>
+	<div class="main">
+		<ul class="handle-panel">
+			<li id="groupChatRoom" title="群聊" data-panel="groupChatRoom" data-hidden="true"><i class="fa fa-users"></i></li>
+			<li title="与其他用户聊天" data-handle="" data-hidden="true"><i class="fa fa-commenting-o"></i></li>
+			<li title="设置" data-handle="" data-hidden="true"><i class="fa fa-cog"></i></li>
+		</ul>
+		<div class="group-chat-panel" data-hidden="true">
+			<ul id="group-msg-wrapper">
+			</ul>
+			<input type="text" id="group-msg-input" placeholder="请输入消息">
+		</div>
+		<canvas class="game-wrapper" id="QWrapper"></canvas>
+
+	</div>
+	<div class="alert"></div>
+	<script type="template" id="msgTemplate">
+		{@if type==='join'}
+		<li class="msg-join"><span>${userName}:</span>加入聊天室,当前在线人数为：<span>${onlineNum}</span></li>
+		{@else if type==='leave'}
+		<li class="msg-leave"><span>${userName}:</span>离开了聊天室,当前在线人数为：<span>${onlineNum}</span></li>
+		{@else if type==='left'}
+		<li class="msg-left"><span>${userName}:</span>${msg}</li>
+		{@else if type==='right'}
+		<li class="msg-right"><span>${userName}:</span>${msg}</li>
+		{@else}
+		<li class="msg-typing"><span>${userName}:</span>正在输入中....</li>
+		{@/if}
+	</script>
+	<script src="script/extends/modernizr-custom.js"></script>
+	<script src="script/extends/jquery.min.js"></script>
+	<script src="script/extends/juicer-min.js"></script>
+	<script src="script/check.js"></script>
+	<script src="script/extends/quintus-all.min.js"></script>
+	<script src="script/Q_Q.js"></script>
+	<script src="script/main.new.js"></script>
+</body>
+
+</html>
