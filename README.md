@@ -15,7 +15,6 @@
  然后用官网的图片素材做了个简单的，有时间我会慢慢改的，目前做出来的只是个概念原型。
  
  
- 
  有用到的技术有 web wokers,webSocket游戏引擎是基于canvas的。wokers用于与后台通讯，减轻UI的的负担。
  
  后台用的是Node框架为Express+socke.io;
