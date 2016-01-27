@@ -232,7 +232,7 @@ $DOC.on('initChatRoom', function (event, ME) {
 			};
 			ME.WOK.emit('msg', data);
 			$input.val('');
-			data.userName=ME.USER.userName;
+			data.userName = ME.USER.userName;
 			MngMsg.log('left', data);
 		});
 	/*聊天室通讯的事件处理配置*/
@@ -280,7 +280,7 @@ $DOC.on('initChatRoom', function (event, ME) {
 		if (!ME.USER.connected) return;
 		if (!ME.USER.typing) {
 			ME.USER.typing = true;
-			ME.WOK.emit('typing',{});
+			ME.WOK.emit('typing', {});
 		}
 		ME.USER.START_INPUT_TIME = +new Date();
 		setTimeout(function () {
@@ -305,19 +305,20 @@ $DOC.on('initChatRoom', function (event, ME) {
 
 /*初始化游戏*/
 $DOC.on('initGame', function (event, ME) {
+	$DOC.focus();
 	ME.USER.connected = true;
 	ME.USER.tagSet = {
-		x:0,
-		y:-80
-	}
-//	Q.debug=true;
+			x: 0,
+			y: -80
+		}
+		//	Q.debug=true;
 	var SlaveManager = function () {
 		var slavers = {};
 		return {
 			create: function (data, stage, Sprite) {
 				var slaver = new Sprite(data.dest);
 				stage.insert(slaver);
-				addTag(data,ME.USER.tagSet,slaver,stage);
+				addTag(data, ME.USER.tagSet, slaver, stage);
 				slavers[data.userId] = slaver;
 			},
 			do: function (type, data, handle) {
@@ -445,7 +446,7 @@ $DOC.on('initGame', function (event, ME) {
 	Q.scene("map", function (stage) {
 		Q.stageTMX("mao.tmx", stage);
 		var data = {
-				x: Q.width * Math.random() >> 0,
+				x: ((Q.width - 200) * Math.random()+200) >> 0,
 				y: Q.height * Math.random() >> 0
 			},
 			masterPlayer = new Q.MasterPlayer(data);
@@ -454,7 +455,9 @@ $DOC.on('initGame', function (event, ME) {
 			dest: data
 		});
 		stage.insert(masterPlayer);
-		addTag({userName:ME.USER.userName},ME.USER.tagSet,masterPlayer,stage);
+		addTag({
+			userName: ME.USER.userName
+		}, ME.USER.tagSet, masterPlayer, stage);
 		stage.add("viewport").follow(masterPlayer);
 	});
 	Q.loadTMX("mao.tmx, player.png,player.json", function () {
@@ -515,7 +518,7 @@ $DOC.on('initGame', function (event, ME) {
 		var button = new Q.UI.Button({
 			label: data.userName,
 			fill: "#fff",
-			type:0,
+			type: 0,
 			border: 1,
 			radius: 10,
 			y: set.y,

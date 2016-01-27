@@ -15,7 +15,7 @@ var users = [],
 io.on('connection', function(socket) {
     socket.on('login', function(data) {
 		index++;
-        console.log('登录的用户：', data.userName);
+//        console.log('登录的用户：', data.userName);
 		socket.userName=data.userName;
         socket.emit('login', {
             onlineNum: index,
@@ -51,14 +51,14 @@ io.on('connection', function(socket) {
         socket.broadcast.to(data.userId).emit('answer',ndata);
      })
      socket.on('move',function(data){
-        console.log('用户移动：',data);
+//        console.log('用户移动：',data);
        data.userId=socket.id;
         socket.broadcast.emit('move',data);
      });
 
      socket.on('amend',function(data){
         data.userId=socket.id;
-        console.log('用户停止移动进行位置修正：',data);
+//        console.log('用户停止移动进行位置修正：',data);
         socket.broadcast.emit('amend',data);
      });
 
