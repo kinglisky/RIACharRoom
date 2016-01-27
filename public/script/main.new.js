@@ -305,7 +305,7 @@ $DOC.on('initChatRoom', function (event, ME) {
 
 /*初始化游戏*/
 $DOC.on('initGame', function (event, ME) {
-	$DOC.focus();
+	ME.DOM.$window.focus();
 	ME.USER.connected = true;
 	ME.USER.tagSet = {
 			x: 0,
